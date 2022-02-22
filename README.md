@@ -1,4 +1,4 @@
-[![The HR Division, Manage Your team.](https://pimp-my-readme.webapp.io/pimp-my-readme/wavy-banner?subtitle=Manage%20Your%20team.&title=The%20HR%20Division)](https://pimp-my-readme.webapp.io)
+[![The HR Division, Manage Your team.](https://pimp-my-readme.webapp.io/pimp-my-readme/wavy-banner?subtitle=Manage%20Your%20team.&title=The%20HR%20Division)](https://github.com/F1iper/The-HR-Division)
 
 # HR management application
 
