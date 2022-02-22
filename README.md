@@ -18,3 +18,4 @@ The HR Division is an application that facilitates communication in the company,
  ## Dependencies
  1. In progress
  
+
