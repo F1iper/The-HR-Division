@@ -14,7 +14,7 @@ The HR Division is an application that facilitates communication in the company,
  - CRUD operations for: 
  1. Employee
  2. User
- 3.  
+
  
  ## Technology Stack
  - Java 17
