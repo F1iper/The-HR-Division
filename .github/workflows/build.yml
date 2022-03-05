@@ -1,4 +1,4 @@
-name: Build check
+name: Java 17 with Maven CI build check
 on: push
 
 jobs:
