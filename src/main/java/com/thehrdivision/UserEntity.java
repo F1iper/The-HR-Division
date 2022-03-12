@@ -28,7 +28,7 @@ public class UserEntity {
 
     private String workEmail;
 
-    @OneToOne()
+    @OneToOne
     @JoinColumn(name = "position_id")
     private Position position;
 
