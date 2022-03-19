@@ -19,3 +19,5 @@ The HR Division is an application that facilitates communication in the company,
  1. In progress
  
 
+ ## Jira
+ https://thehrdivision.atlassian.net
