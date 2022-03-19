@@ -19,6 +19,5 @@ public class TrainingHistory {
     private LocalDate dateOfCourse;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
     private Employee employee;
 }

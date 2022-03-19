@@ -21,6 +21,5 @@ public class Payroll {
     private BigDecimal totalAmount;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
     private Employee employee;
 }

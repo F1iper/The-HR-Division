@@ -17,6 +17,6 @@ public class PerformanceReview {
 
     private LocalDate dateOfReview;
 
-    @ManyToOne(targetEntity = Employee.class)
+    @ManyToOne
     private Employee employee;
 }
