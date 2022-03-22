@@ -16,8 +16,8 @@ public class Payroll {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private LocalDate date; // date of what ?
-    private String report; // ?
+    private LocalDate generationDate;
+    private String description;
     private BigDecimal totalAmount;
 
     @ManyToOne
