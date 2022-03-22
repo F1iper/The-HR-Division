@@ -47,6 +47,4 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Set<JobAssigments> jobAssigments;
 
-    // TODO: 19.03.2022 Employee <--> Benefit relation
-
 }
