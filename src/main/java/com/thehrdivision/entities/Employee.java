@@ -24,27 +24,27 @@ public class Employee {
     private LocalDate dateLeft;
     private Boolean disability;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Person user;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<TrainingHistory> trainingHistory;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<PerformanceReview> performanceReviews;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<Payroll> payrolls;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<EmployeeSkills> employeeSkills;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<JobAssigments> jobAssigments;
 
     // TODO: 19.03.2022 Employee <--> Benefit relation

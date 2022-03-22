@@ -4,6 +4,6 @@ import com.thehrdivision.dto.EmployeeDto;
 
 public interface EmployeeAddService {
 
-    EmployeeDto add(EmployeeDto dto);
+    EmployeeDto execute(EmployeeDto dto);
 
 }

@@ -1,24 +1,29 @@
 package com.thehrdivision.service.impl;
 
 import com.thehrdivision.dto.EmployeeDto;
-import com.thehrdivision.entities.Employee;
 import com.thehrdivision.mapper.EmployeeMapper;
 import com.thehrdivision.repository.EmployeeRepository;
-import com.thehrdivision.service.EmployeeAddService;
+import com.thehrdivision.service.EmployeeGetByIdService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class EmployeeAddServiceImpl implements EmployeeAddService {
+@Slf4j
+public class EmployeeGetByIdServiceImpl implements EmployeeGetByIdService {
 
     private final EmployeeRepository repository;
     private final EmployeeMapper mapper;
 
     @Override
-    public EmployeeDto execute(EmployeeDto dto) {
-        Employee employee = mapper.fromDto(dto);
-        repository.save(employee);
-        return mapper.toDto(employee);
+    public EmployeeDto find(Integer id) {
+        return mapper.toDto(repository.getById(id));
+
+    }
+
+    @Override
+    public boolean exists(Integer id) {
+        return repository.existsById(id);
     }
 }
