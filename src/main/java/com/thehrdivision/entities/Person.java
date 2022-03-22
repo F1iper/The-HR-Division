@@ -1,21 +1,20 @@
-package com.thehrdivision;
+package com.thehrdivision.entities;
 
-import com.sun.istack.NotNull;
-
-import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-public class UserEntity {
+public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

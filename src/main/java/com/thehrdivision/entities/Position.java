@@ -1,4 +1,4 @@
-package com.thehrdivision;
+package com.thehrdivision.entities;
 
 import javax.persistence.*;
 
@@ -7,6 +7,9 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @OneToOne
+    private Person person;
 
 
 }
