@@ -21,18 +21,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String[] NOT_REGISTERER = new String[]{"/resetPassword", "/resetPassword/**"};
     
     private final UserDetailsService userDetailsService;
-    private final PasswordEncoder passwordEncoder;
 
-    public SecurityConfiguration(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+
+    public SecurityConfiguration(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-
                 .antMatchers(PERMITED_ALL)
                 .permitAll()
                 .antMatchers(AUTHENTICATED)
@@ -55,6 +53,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userDetailsService);
     }
 }
