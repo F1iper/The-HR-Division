@@ -8,8 +8,6 @@ import com.thehrdivision.service.EmployeeUpdateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class EmployeeUpdateServiceImpl implements EmployeeUpdateService {
@@ -18,18 +16,13 @@ public class EmployeeUpdateServiceImpl implements EmployeeUpdateService {
     private final EmployeeMapper mapper;
 
     @Override
-    public boolean successfull(EmployeeDto dto, Integer id) {
-        List<Employee> list = repository.findAll();
-        list
-                .stream()
-                .map(employee -> {
-                    if (employee.getId().equals(id)) {
-                        Employee updatedEmployee = mapper.fromDto(dto);
-                        repository.save(updatedEmployee);
-                        return true;
-                    }
-                    return false;
-                });
+    public boolean updateSuccessfull(EmployeeDto dto, Integer id) {
+        if (repository.existsById(id)) {
+            Employee employee = mapper.toEmployee(dto);
+            employee.setId(id);
+            repository.save(employee);
+            return true;
+        }
         return false;
     }
 }

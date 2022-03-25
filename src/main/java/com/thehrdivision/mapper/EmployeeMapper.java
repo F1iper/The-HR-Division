@@ -2,16 +2,14 @@ package com.thehrdivision.mapper;
 
 import com.thehrdivision.dto.EmployeeDto;
 import com.thehrdivision.entities.Employee;
-import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper
 public interface EmployeeMapper {
 
-    EmployeeDto toDto(Employee employee);
+    EmployeeDto toEmployeeDto(Employee employee);
 
-    Employee fromDto(EmployeeDto dto);
+    Employee toEmployee(EmployeeDto dto);
 
     List<EmployeeDto> listToListDto(List<Employee> employees);
 

@@ -42,12 +42,11 @@ public class EmployeeController {
         return new ResponseEntity<>(add.execute(dto), HttpStatus.ACCEPTED);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody final EmployeeDto dto, @PathVariable Integer id) {
-        if (update.successfull(dto, id))
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        if (update.updateSuccessfull(dto, id))
+            return new ResponseEntity<>(dto, HttpStatus.ACCEPTED);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
     }
 
     @DeleteMapping

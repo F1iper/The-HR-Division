@@ -5,12 +5,10 @@ import com.thehrdivision.mapper.EmployeeMapper;
 import com.thehrdivision.repository.EmployeeRepository;
 import com.thehrdivision.service.EmployeeGetByIdService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class EmployeeGetByIdServiceImpl implements EmployeeGetByIdService {
 
     private final EmployeeRepository repository;
@@ -18,8 +16,7 @@ public class EmployeeGetByIdServiceImpl implements EmployeeGetByIdService {
 
     @Override
     public EmployeeDto find(Integer id) {
-        return mapper.toDto(repository.getById(id));
-
+        return mapper.toEmployeeDto(repository.getById(id));
     }
 
     @Override

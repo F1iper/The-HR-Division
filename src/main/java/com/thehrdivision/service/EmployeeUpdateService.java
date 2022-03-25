@@ -5,5 +5,5 @@ import com.thehrdivision.dto.EmployeeDto;
 public interface EmployeeUpdateService {
 
 
-    boolean successfull(EmployeeDto dto, Integer id);
+    boolean updateSuccessfull(EmployeeDto dto, Integer id);
 }

@@ -3,31 +3,24 @@ package com.thehrdivision.mapper.impl;
 import com.thehrdivision.dto.EmployeeDto;
 import com.thehrdivision.entities.Employee;
 import com.thehrdivision.mapper.EmployeeMapper;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeMapperImpl implements EmployeeMapper {
 
-    @Override
-    public EmployeeDto toDto(Employee employee) {
-        if (employee == null)
-            return null;
-        else {
-            EmployeeDto employeeDto = new EmployeeDto();
+    private final ModelMapper mapper;
 
-            employeeDto.setId(employee.getId());
-            employeeDto.setFirstname(employee.getFirstname());
-            employeeDto.setLastname(employee.getLastname());
-            employeeDto.setDateOfBirth(employee.getDateOfBirth());
-            employeeDto.setDisability(employee.getDisability());
-            employeeDto.setDateJoined(employee.getDateJoined());
-            employeeDto.setDateLeft(employee.getDateLeft());
-            employeeDto.setGender(employee.getGender());
-            return employeeDto;
-        }
+    @Override
+    public EmployeeDto toEmployeeDto(Employee employee) {
+        EmployeeDto employeeDto = new EmployeeDto();
+        mapper.map(employee, employeeDto);
+        return employeeDto;
     }
 
     @Override
@@ -37,7 +30,7 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         else {
             List<EmployeeDto> dtos = new ArrayList<>();
             for (Employee employee : employees) {
-                dtos.add(toDto(employee));
+                dtos.add(toEmployeeDto(employee));
             }
             return dtos;
         }
@@ -50,28 +43,16 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         else {
             List<Employee> employees = new ArrayList<>();
             for (EmployeeDto employeeDto : dtos) {
-                employees.add(fromDto(employeeDto));
+                employees.add(toEmployee(employeeDto));
             }
             return employees;
         }
     }
 
     @Override
-    public Employee fromDto(EmployeeDto dto) {
-        if (dto == null)
-            return null;
-        else {
-
-            Employee employee = new Employee();
-            employee.setId(dto.getId());
-            employee.setFirstname(dto.getFirstname());
-            employee.setLastname(dto.getLastname());
-            employee.setDateOfBirth(dto.getDateOfBirth());
-            employee.setDisability(dto.getDisability());
-            employee.setDateJoined(dto.getDateJoined());
-            employee.setDateLeft(dto.getDateLeft());
-            employee.setGender(dto.getGender());
-            return employee;
-        }
+    public Employee toEmployee(EmployeeDto dto) {
+        Employee employee = new Employee();
+        mapper.map(dto, employee);
+        return employee;
     }
 }
